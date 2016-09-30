@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>scroll</title>
+	<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+		ul{
+			list-style: none;
+		}
+		li{
+			height: 50px;
+			line-height: 50px;
+			font-size: 36px;
+			text-align: center;
+			border-bottom: 1px red solid;
+		}
+		body{
+			margin: 0;
+		}
+		div{
+			min-height: 1200px;
+		}
+	</style>
+</head>
+<body>
+	<div ></div>
+	<script>
+		// onscroll 滚动条事件
+		// document.body.scrollTop 滚动条的高度
+		// document.documentElement.scrollTop 滚动条的高度
+		
+		// 
+		appendHtml(20);
+		function appendHtml(count){
+			var html = "";
+			html +="<ul>";
+			for(var i = 0;i<count;i++){
+				html+="<li>"+(i+1)+"</li>";
+			}
+			html +="</ul>";
+			document.querySelector("div").innerHTML += html;
+		}
+		window.onscroll = function(){
+			var srollTop = document.body.scrollTop || document.documentElement.scrollTop;
+			var height = document.body.scrollHeight;
+			var windowHeight = window.innerHeight;
+			if(srollTop >= (height - windowHeight)){
+				appendHtml(20);	
+			}
+		}
+	</script>
+</body>
+</html>

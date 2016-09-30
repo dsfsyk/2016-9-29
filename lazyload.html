@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>lazyload</title>
+</head>
+<body>
+	<!-- img 支持name属性 -->
+	<!-- document.images 获取文档所有img标签，返回一个数组-->
+	<img alt="" data-src="http://www.bz55.com/uploads/allimg/160419/139-160419162216.jpg">
+	<img alt="" data-src="http://www.bz55.com/uploads/allimg/160419/139-160419162216.jpg">
+	<img alt="" data-src="http://www.bz55.com/uploads/allimg/160419/139-160419162216.jpg">
+	<img name="last" alt="" data-src="http://www.bz55.com/uploads/allimg/160419/139-160419162216.jpg">
+
+	<button>请求图片</button>
+	<script>
+	var img = document.images["last"];
+	var btn = document.querySelector("button");
+	btn.onclick = function(){
+		var url = img.getAttribute("data-src");
+		img.src = url;
+	}
+	</script>
+</body>
+</html>
